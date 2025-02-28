@@ -12,8 +12,7 @@ pipeline {
             steps {
                 git url: 'https://github.com/your-username/Fish_age.git', credentialsId: 'github-pat'
             }
-    }
-    stages {
+        }
         stage('Build') {
             steps {
                 sh 'echo "Building..."'
