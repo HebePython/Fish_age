@@ -11,7 +11,7 @@ COPY tests/ .
 RUN pip install --no-cache-dir pytest
 
 #Verify pytest installation
-RUN pytest --version
+RUN python -m pytest --version
 
 # Command to run the application
 CMD ["python", "main.py"]

@@ -24,8 +24,8 @@ pipeline {
         stage('Test') {
             steps {
                 sh 'echo "Testing..."'
-                sh 'pytest --version'
-                sh 'pytest tests/'
+                sh 'python -m pytest --version' // Verify pytest installation
+                sh 'python -m pytest tests/' // run pytest
             }
         }
         stage('Deploy') {
