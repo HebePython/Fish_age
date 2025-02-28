@@ -5,12 +5,12 @@ pipeline {
         }
     }
     environment {
-        GITHUB_TOKEN = credentials('github-token')
+        GITHUB_TOKEN = credentials('github-pat')
     }
     stages {
         stage('Checkout') {
             steps {
-                git url: 'https://github.com/your-username/your-repo.git', credentialsId: 'github-token'
+                git url: 'https://github.com/your-username/Fish_age.git', credentialsId: 'github-pat'
             }
     }
     stages {
