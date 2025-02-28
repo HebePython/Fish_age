@@ -7,11 +7,12 @@ WORKDIR /app
 COPY src/app/ .
 COPY tests/ .
 
-# Install any dependencies (if you have a requirements.txt, uncomment the next line)
-RUN pip install --no-cache-dir pytest
+# Install pytest directly using pip3
+RUN apt-get update && apt-get install -y python3-pip
+RUN pip3 install --no-cache-dir pytest
 
-#Verify pytest installation
-RUN python -m pytest --version
+# Verify pytest installation
+RUN python3 -m pytest --version
 
 # Command to run the application
-CMD ["python", "main.py"]
+CMD ["python3", "main.py"]
