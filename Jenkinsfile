@@ -11,14 +11,12 @@ pipeline {
         }
         stage('Build') {
             agent {
-                label 'docker'
+                docker {
+                    image 'python:3.8'
+                }
             }
             steps {
-                script {
-                    docker.image('python:3.8').inside {
-                        sh 'echo "Building..."'
-                    }
-                }
+                sh 'echo "Building..."'
             }
         }
         stage('Test') {
