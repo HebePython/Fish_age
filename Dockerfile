@@ -10,5 +10,8 @@ COPY tests/ .
 # Install any dependencies (if you have a requirements.txt, uncomment the next line)
 RUN pip install --no-cache-dir pytest
 
+#Verify pytest installation
+RUN pytest --version
+
 # Command to run the application
 CMD ["python", "main.py"]
