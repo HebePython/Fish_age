@@ -18,14 +18,14 @@ pipeline {
             }
             steps {
                 sh 'echo "Building..."'
-                sh 'python3 src/app/main.py' // runs main.py
+                sh 'python src/app/main.py' // runs main.py
             }
         }
         stage('Test') {
             steps {
                 sh 'echo "Testing..."'
-                sh 'python3 -m pytest --version' // Verify pytest installation
-                sh 'python3 -m pytest tests/' // run pytest
+                sh 'python -m pytest --version' // Verify pytest installation
+                sh 'python -m pytest tests/' // run pytest
             }
         }
         stage('Deploy') {
