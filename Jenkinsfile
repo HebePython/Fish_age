@@ -33,9 +33,10 @@ pipeline {
                 sh 'apt-get update && apt-get install -y curl' // Install curl
                 sh 'curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py' // Download get-pip.py
                 sh 'python3 get-pip.py' // Install pip
-                sh 'pip install --no-cache-dir pytest' // Install pytest
-                sh 'python3 -m pytest --version' // Verify pytest installation
-                sh 'python3 -m pytest tests/' // run pytest
+                sh 'python3 -m venv venv' // Create a virtual environment
+                sh '. venv/bin/activate && pip install --no-cache-dir pytest' // Install pytest in the virtual environment
+                sh '. venv/bin/activate && python3 -m pytest --version' // Verify pytest installation
+                sh '. venv/bin/activate && python3 -m pytest tests/' // run pytest
             }
         }
         stage('Deploy') {
