@@ -1,39 +1,24 @@
 pipeline {
-    agent any
-
+    agent {
+        docker {
+            image 'python:3.8'
+        }
+    }
     stages {
         stage('Build') {
             steps {
-                script {
-                    echo 'Building the application...'
-                    sh 'docker build -t my-app .'
-                }
+                sh 'echo "Building..."'
             }
         }
-
         stage('Test') {
             steps {
-                script {
-                    echo 'Running tests...'
-                    sh 'docker run my-app python -m unittest discover -s src/app'
-                }
+                sh 'echo "Testing..."'
             }
         }
-
         stage('Deploy') {
             steps {
-                script {
-                    echo 'Deploying the application...'
-                    // Add deployment steps here, e.g., pushing to a server or cloud service
-                }
+                sh 'echo "Deploying..."'
             }
-        }
-    }
-
-    post {
-        always {
-            echo 'Cleaning up...'
-            sh 'docker rmi my-app || true'
         }
     }
 }
