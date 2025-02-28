@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git url: 'https://github.com/your-username/Fish_age.git', credentialsId: 'github-pat'
+                git url: 'https://github.com/HebePython/Fish_age.git', credentialsId: 'github-pat'
             }
         }
         stage('Build') {
