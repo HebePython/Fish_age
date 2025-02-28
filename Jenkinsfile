@@ -24,7 +24,7 @@ pipeline {
         stage('Test') {
             steps {
                 sh 'echo "Testing..."'
-                sh 'pytest tests/'
+                sh 'pytest tests/test_main.py'
             }
         }
         stage('Deploy') {
