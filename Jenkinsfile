@@ -19,7 +19,6 @@ pipeline {
             steps {
                 sh 'echo "Building..."'
                 sh 'python3 src/app/main.py' // runs main.py
-                sh 
             }
         }
         stage('Test') {
