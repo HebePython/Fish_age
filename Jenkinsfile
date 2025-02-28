@@ -24,7 +24,7 @@ pipeline {
         stage('Test') {
             steps {
                 sh 'echo "Testing..."'
-                sh 'pip --version'
+                sh 'pip3 --version'
                 sh 'pip install --no-cache-dir pytest' // Install pytest
                 sh 'python3 -m pytest --version' // Verify pytest installation
                 sh 'python3 -m pytest tests/' // run pytest
