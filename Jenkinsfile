@@ -11,14 +11,13 @@ pipeline {
         }
         stage('Build') {
             agent {
-                label 'docker'
+                docker {
+                    image 'python:3.8'
+                    args '-u root:root' // Run as root user to avoid permission issues
+                }
             }
             steps {
-                script {
-                    docker.image('python:3.8').inside {
-                        sh 'echo "Building..."'
-                    }
-                }
+                sh 'echo "Building..."'
             }
         }
         stage('Test') {
