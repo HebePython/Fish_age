@@ -1,5 +1,9 @@
 pipeline {
-    agent any
+    agent {
+        docker {
+            image 'python:3.8'
+        }
+    }
     environment {
         GITHUB_TOKEN = credentials('github-pat')
     }
@@ -10,11 +14,6 @@ pipeline {
             }
         }
         stage('Build') {
-            agent {
-                docker {
-                    image 'python:3.8'
-                }
-            }
             steps {
                 sh 'echo "Building..."'
             }
