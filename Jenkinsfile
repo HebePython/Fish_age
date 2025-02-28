@@ -18,7 +18,7 @@ pipeline {
             }
             steps {
                 sh 'echo "Building..."'
-                sh 'python main.py' // runs main.py
+                sh 'python src\app\main.py' // runs main.py
             }
         }
         stage('Test') {
