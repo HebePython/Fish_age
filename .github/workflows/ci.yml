@@ -25,7 +25,7 @@ jobs:
 
       - name: Run tests
         run: |
-          docker run my-app python src/app/main.py --test
+          docker run my-app pytest tests/
 
       - name: Publish Docker image
         run: |
