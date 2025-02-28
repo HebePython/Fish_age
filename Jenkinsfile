@@ -12,7 +12,7 @@ pipeline {
         stage('Build') {
             agent {
                 docker {
-                    image 'python:3.8'
+                    image 'python:3.9-slim'
                     args '-u root:root' // Run as root user to avoid permission issues
                 }
             }
@@ -24,7 +24,7 @@ pipeline {
         stage('Test') {
             steps {
                 sh 'echo "Testing..."'
-                sh 'pytest tests/test_main.py'
+                sh 'pytest tests/'
             }
         }
         stage('Deploy') {
