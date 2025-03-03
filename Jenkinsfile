@@ -22,6 +22,12 @@ pipeline {
             }
         }
         stage('Test') {
+            agent {
+                docker {
+                    image 'python:3.11-slim'
+                    args '-u root:root' // Run as root user to avoid permission issues
+                }
+            }
             steps {
                 sh 'echo "Testing..."'
                 sh 'apt-get update && apt-get install -y curl' // Install curl
